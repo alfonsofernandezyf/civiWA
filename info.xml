@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<extension key="civiwa" type="module" name="CiviWA - CiviCRM WhatsApp Integration" version="1.0">
+<extension key="civiwa" type="module" name="CiviWA - WhatsApp Integration" version="1.0">
+    <description>
+        Esta extensión integra WhatsApp Business con CiviCRM, permitiendo enviar y recibir mensajes, así como registrar actividades relacionadas con los contactos.
+    </description>
     <file>whatsapp.php</file>
     <file>webhook.php</file>
 </extension>
