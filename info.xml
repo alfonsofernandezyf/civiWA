@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<extension key="civicrm.whatsapp" type="module" name="WhatsApp Integration" version="1.0">
+<extension key="civiwa" type="module" name="CiviWA - CiviCRM WhatsApp Integration" version="1.0">
     <file>whatsapp.php</file>
     <file>webhook.php</file>
 </extension>

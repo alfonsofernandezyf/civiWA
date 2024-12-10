@@ -2,7 +2,7 @@
 // WhatsApp integration functions
 
 function sendWhatsAppMessage($phone, $message) {
-    $url = "https://graph.facebook.com/v15.0/YOUR_PHONE_NUMBER_ID/messages";
+    $url = "https://graph.facebook.com/v15.0/5516893315/messages";
     $data = [
         'messaging_product' => 'whatsapp',
         'to' => $phone,
