@@ -41,34 +41,38 @@ function sendWhatsAppMessage($phone, $message) {
     return $result;
 }
 
-
+/**
+ * Hook: civicrm_post
+ * Ejecuta acciones después de crear actividades.
+ */
 function civiwa_civicrm_post($op, $objectName, $objectId, &$objectRef) {
     if ($objectName == 'Activity' && $op == 'create') {
-        // Obtener la actividad creada
         $activity = civicrm_api3('Activity', 'get', ['id' => $objectId]);
         $activityType = $activity['values'][$objectId]['activity_type_id'];
 
-        // Verificar que sea del tipo "Mensaje WhatsApp"
+        // Verificar si es una actividad de tipo "Mensaje WhatsApp"
         if ($activityType == 69) { // ID de "Mensaje WhatsApp"
-            // Obtener el número de teléfono del contacto
             $targetContactId = $activity['values'][$objectId]['target_contact_id'][0];
             $contact = civicrm_api3('Contact', 'get', ['id' => $targetContactId]);
             $phone = $contact['values'][$targetContactId]['phone'];
 
-            // Validar y formatear el número de teléfono
             $phone = preg_replace('/[^0-9]/', '', $phone);
             if (strpos($phone, '52') !== 0) {
                 $phone = '52' . $phone; // Agregar código de país si falta
             }
 
-            // Enviar el mensaje
-            $message = $activity['values'][$objectId]['subject']; // Usa el "subject" como mensaje
+            $message = $activity['values'][$objectId]['subject'];
             sendWhatsAppMessage($phone, $message);
         }
     }
 }
+
+/**
+ * Hook: civicrm_searchTasks
+ * Agrega la acción "Enviar Mensaje de WhatsApp" a la lista de contactos.
+ */
 function civiwa_civicrm_searchTasks($objectName, &$tasks) {
-    if ($objectName == 'Contact') {
+    if ($objectName === 'Contact') {
         $tasks[] = [
             'title' => ts('Enviar Mensaje de WhatsApp'),
             'class' => 'CRM_CiviWA_Task_SendWhatsApp',
