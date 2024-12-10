@@ -73,10 +73,13 @@ function civiwa_civicrm_post($op, $objectName, $objectId, &$objectRef) {
  */
 function civiwa_civicrm_searchTasks($objectName, &$tasks) {
     if ($objectName === 'Contact') {
+        error_log("Hook civicrm_searchTasks ejecutado correctamente.");
         $tasks[] = [
             'title' => ts('Enviar Mensaje de WhatsApp'),
             'class' => 'CRM_CiviWA_Task_SendWhatsApp',
             'result' => TRUE,
         ];
+    } else {
+        error_log("Hook civicrm_searchTasks no se ejecutó para Contact.");
     }
 }
