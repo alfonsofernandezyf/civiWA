@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'contact_id' => $contactId,
             'subject' => 'Mensaje de WhatsApp',
             'details' => $message,
-            'activity_type_id' => 'Mensaje WhatsApp'
+            'activity_type_id' => 69
         ]);
     }
 

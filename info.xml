@@ -3,7 +3,7 @@
   <file>webhook</file>
   <file>whatsapp</file>
   <name>CiviWA - WhatsApp Integration</name>
-  <description>Integrates WhatsApp Business with CiviCRM for sending and receiving messages, and logging them as activities.</description>
+  <description>Integrates WhatsApp Business with CiviCRM for sending and receiving messages, and logs them as activities.</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>Your Name</author>
@@ -37,6 +37,6 @@
   </mixins>
   <classloader>
     <psr0 prefix="CRM_" path="."/>
-    <psr4 prefix="Civi\\" path="Civi"/>
+    <psr4 prefix="Civi\" path="Civi"/>
   </classloader>
 </extension>
