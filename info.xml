@@ -1,42 +1,25 @@
 <?xml version="1.0"?>
 <extension key="civiwa" type="module">
-  <file>webhook</file>
-  <file>whatsapp</file>
+  <file>civiwa</file>
   <name>CiviWA - WhatsApp Integration</name>
-  <description>Integrates WhatsApp Business with CiviCRM for sending and receiving messages, and logs them as activities.</description>
+  <description>Send WhatsApp messages to contacts directly from CiviCRM using Waboxapp.</description>
   <license>AGPL-3.0</license>
   <maintainer>
-    <author>Your Name</author>
-    <email>your-email@example.com</email>
+    <author>Alfonso Fernández</author>
+    <email>contacto@medevent.mx</email>
   </maintainer>
   <urls>
-    <url desc="Main Extension Page">https://your-extension-homepage.com</url>
-    <url desc="Support">https://your-support-page.com</url>
-    <url desc="Documentation">https://your-documentation-page.com</url>
-    <url desc="Release Notes">https://your-release-notes-page.com</url>
-    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+    <url desc="Documentation">https://waboxapp.com/docs</url>
+    <url desc="Support">https://waboxapp.com/support</url>
   </urls>
   <releaseDate>2024-12-09</releaseDate>
   <version>1.0.0</version>
-  <develStage>stable</develStage>
+  <develStage>devel</develStage>
   <compatibility>
     <ver>5.78</ver>
   </compatibility>
-  <comments>WhatsApp Integration for CiviCRM</comments>
   <civix>
     <namespace>CRM/CiviWA</namespace>
     <format>24.09.1</format>
   </civix>
-  <mixins>
-    <mixin>menu-xml@1.0.0</mixin>
-    <mixin>mgd-php@1.0.0</mixin>
-    <mixin>setting-php@1.0.0</mixin>
-    <mixin>setting-admin@1.0.1</mixin>
-    <mixin>entity-types-php@2.0.0</mixin>
-    <mixin>smarty@1.0.3</mixin>
-  </mixins>
-  <classloader>
-    <psr0 prefix="CRM_" path="."/>
-    <psr4 prefix="Civi\" path="Civi"/>
-  </classloader>
 </extension>

@@ -23,28 +23,16 @@ function sendWhatsAppMessage($phone, $message) {
     return $response;
 }
 
-// Hook for sending WhatsApp messages based on activity creation
-function civiwa_civicrm_post($op, $objectName, $objectId, &$objectRef) {
-    if ($objectName == 'Activity' && $op == 'create') {
-        // Check if the activity type is 69 (Mensaje WhatsApp)
-        $activity = civicrm_api3('Activity', 'get', ['id' => $objectId]);
-        $activityType = $activity['values'][$objectId]['activity_type_id'];
-
-        if ($activityType == 69) {
-            // Get the target contact's phone number
-            $targetContactId = $activity['values'][$objectId]['target_contact_id'][0];
-            $contact = civicrm_api3('Contact', 'get', ['id' => $targetContactId]);
-            $phone = $contact['values'][$targetContactId]['phone'];
-
-            // Validate phone number
-            $phone = preg_replace('/[^0-9]/', '', $phone);
-            if (strpos($phone, '52') !== 0) {
-                $phone = '52' . $phone; // Add country code if missing
-            }
-
-            // Send the WhatsApp message
-            $message = $activity['values'][$objectId]['subject']; // Example: Use the subject as the message body
-            sendWhatsAppMessage($phone, $message);
-        }
+/**
+ * Implementa hook_civicrm_searchTasks().
+ * Añade una acción personalizada para enviar mensajes de WhatsApp desde los resultados de búsqueda de contactos.
+ */
+function civiwa_civicrm_searchTasks($objectName, &$tasks) {
+    if ($objectName == 'Contact') {
+        $tasks[] = [
+            'title' => ts('Enviar Mensaje de WhatsApp'),
+            'class' => 'CRM_CiviWA_Task_SendWhatsApp',
+            'result' => TRUE,
+        ];
     }
 }
