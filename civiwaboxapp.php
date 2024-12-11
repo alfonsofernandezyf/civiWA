@@ -30,3 +30,20 @@ function civiwaboxapp_civicrm_install(): void {
 function civiwaboxapp_civicrm_enable(): void {
   _civiwaboxapp_civix_civicrm_enable();
 }
+
+function civiwaboxapp_civicrm_links(&$links, $entity) {
+  if ($entity == 'Contact') {
+      $links[] = [
+          'title' => ts('Send WhatsApp'),
+          'url' => 'civicrm/civiwaboxapp/send',
+          'qs' => 'cid=%%id%%',
+          'class' => 'action-item',
+      ];
+  }
+}
+
+function civiwaboxapp_civicrm_pageRun($page) {
+  if ($page instanceof CRM_Civiwaboxapp_Page_SendMessage) {
+      CRM_Core_Resources::singleton()->addScriptFile('org.example.civiwaboxapp', 'templates/SendMessage.js');
+  }
+}
