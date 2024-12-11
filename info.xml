@@ -39,3 +39,6 @@
     <mixin>smarty@1.0.3</mixin>
   </mixins>
 </extension>
+<extension key="org.example.civiwaboxapp" type="module" name="WaboxApp Integration">
+    <page path="civiwaboxapp/send" callback="CRM_Civiwaboxapp_Page_SendMessage::run" />
+</extension>
