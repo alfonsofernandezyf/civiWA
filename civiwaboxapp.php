@@ -34,7 +34,20 @@ function civiwaboxapp_civicrm_enable(): void {
   _civiwaboxapp_civix_civicrm_enable();
 }
 
+/**
+ * Implements hook_civicrm_links().
+ *
+ * Adds a link to send WhatsApp messages from the contact screen.
+ *
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_links/
+ */
 function civiwaboxapp_civicrm_links(&$links, $entity) {
+  // Asegúrate de que $links sea un array
+  if (!is_array($links)) {
+      $links = [];
+  }
+
+  // Verifica si la entidad es 'Contact'
   if ($entity == 'Contact') {
       $links[] = [
           'title' => ts('Send WhatsApp'),
@@ -47,7 +60,6 @@ function civiwaboxapp_civicrm_links(&$links, $entity) {
       ];
   }
 }
-
 
 function civiwaboxapp_civicrm_pageRun($page) {
   if ($page instanceof CRM_Civiwaboxapp_Page_SendMessage) {
