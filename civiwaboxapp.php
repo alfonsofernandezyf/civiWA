@@ -63,10 +63,13 @@ function civiwaboxapp_civicrm_links(&$links, $entity) {
   }
 }
 
-
-
 function civiwaboxapp_civicrm_pageRun($page) {
   if ($page instanceof CRM_Civiwaboxapp_Page_SendMessage) {
       CRM_Core_Resources::singleton()->addScriptFile('org.example.civiwaboxapp', 'templates/SendMessage.js');
   }
 }
+
+function civiwaboxapp_civicrm_alterProviderTypes(&$providerTypes) {
+  $providerTypes['waboxapp'] = 'CRM_Civiwaboxapp_Provider_WaboxAppProvider';
+}
+
