@@ -22,8 +22,8 @@ function civiwaboxapp_civicrm_install(): void {
   _civiwaboxapp_civix_civicrm_install();
 
   // Guarda las credenciales en la base de datos
-  CRM_Core_BAO_Setting::setItem('b024898d0b32425e9600ef52f9779c776758982aaff20', 'Civiwaboxapp Settings', 'api_token');
-  CRM_Core_BAO_Setting::setItem('5214434751835', 'Civiwaboxapp Settings', 'phone_number');
+  CRM_Core_BAO_Setting::setItem('your_api_token', 'Civiwaboxapp Settings', 'api_token');
+  CRM_Core_BAO_Setting::setItem('your_phone_number', 'Civiwaboxapp Settings', 'phone_number');
 }
 
 /**
