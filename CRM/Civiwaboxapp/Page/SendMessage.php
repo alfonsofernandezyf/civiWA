@@ -14,7 +14,7 @@ class SendMessage extends CRM_Core_Page {
             $message = $_POST['message'];
             $phoneNumber = $contact['values'][$cid]['phone'];
 
-            $wabox = new WaboxApp('your_api_token', 'your_phone_number');
+            $wabox = new WaboxApp();
             $result = $wabox->sendMessage($phoneNumber, $message);
 
             if ($result['success']) {

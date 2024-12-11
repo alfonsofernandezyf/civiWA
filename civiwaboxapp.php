@@ -42,13 +42,14 @@ function civiwaboxapp_civicrm_enable(): void {
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_links/
  */
 function civiwaboxapp_civicrm_links(&$links, $entity) {
-  CRM_Core_Error::debug_log_message("civicrm_links hook invoked. Entity: " . $entity);
+  CRM_Core_Error::debug_log_message("Hook civicrm_links invoked for entity: $entity");
+
   // Asegúrate de que $links sea un array
   if (!is_array($links)) {
       $links = [];
   }
 
-  // Verifica si la entidad es 'Contact'
+  // Agregar enlace solo para contactos
   if ($entity === 'Contact') {
       $links[] = [
           'title' => ts('Send WhatsApp'),
@@ -58,14 +59,10 @@ function civiwaboxapp_civicrm_links(&$links, $entity) {
           ),
           'class' => 'action-item',
       ];
-      CRM_Core_Error::debug_log_message("Send WhatsApp link added for Contact.");
-
-  } else {
-      CRM_Core_Error::debug_log_message("No action added for entity: $entity");
+      CRM_Core_Error::debug_log_message("Added 'Send WhatsApp' link.");
   }
-
-  CRM_Core_Error::debug_var('Links array', $links);
 }
+
 
 
 function civiwaboxapp_civicrm_pageRun($page) {
