@@ -39,5 +39,5 @@
     <mixin>smarty@1.0.3</mixin>
   </mixins>
    <!-- Registro de la página para enviar mensajes -->
-    <page path="civiwaboxapp/send" callback="CRM_Civiwaboxapp_Page_SendMessage::run" />
+  <page path="civiwaboxapp/send" callback="CRM_Civiwaboxapp_Page_SendMessage::run" />
 </extension>
