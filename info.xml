@@ -2,24 +2,20 @@
 <extension key="civiwa" type="module">
   <file>civiwa</file>
   <name>CiviWA - WhatsApp Integration</name>
-  <description>Send WhatsApp messages to contacts directly from CiviCRM using Waboxapp.</description>
+  <description>Integrates WhatsApp messaging with CiviCRM using Civix.</description>
   <license>AGPL-3.0</license>
   <maintainer>
-    <author>Alfonso Fernández</author>
-    <email>contacto@medevent.mx</email>
+    <author>Your Name</author>
+    <email>your-email@example.com</email>
   </maintainer>
-  <urls>
-    <url desc="Documentation">https://waboxapp.com/docs</url>
-    <url desc="Support">https://waboxapp.com/support</url>
-  </urls>
   <releaseDate>2024-12-09</releaseDate>
   <version>1.0.0</version>
-  <develStage>devel</develStage>
+  <develStage>stable</develStage>
   <compatibility>
     <ver>5.78</ver>
   </compatibility>
   <civix>
-    <namespace>CRM/CiviWA</namespace>
+    <namespace>CRM/Civiwa</namespace>
     <format>24.09.1</format>
   </civix>
 </extension>
