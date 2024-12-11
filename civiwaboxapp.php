@@ -38,12 +38,16 @@ function civiwaboxapp_civicrm_links(&$links, $entity) {
   if ($entity == 'Contact') {
       $links[] = [
           'title' => ts('Send WhatsApp'),
-          'url' => 'civicrm/civiwaboxapp/send',
+          'url' => CRM_Utils_System::url(
+              'civicrm/civiwaboxapp/send',
+              ['cid' => '%%id%%']
+          ),
           'qs' => 'cid=%%id%%',
           'class' => 'action-item',
       ];
   }
 }
+
 
 function civiwaboxapp_civicrm_pageRun($page) {
   if ($page instanceof CRM_Civiwaboxapp_Page_SendMessage) {
