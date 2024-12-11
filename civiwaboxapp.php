@@ -74,6 +74,6 @@ function civiwaboxapp_civicrm_pageRun($page) {
  */
 function civiwaboxapp_civicrm_alterProviderTypes(&$providerTypes) {
   $providerTypes['waboxapp'] = 'CRM_Civiwaboxapp_Provider_WaboxAppProvider';
-  CRM_Core_Error::debug_log_message("WaboxApp registered as SMS provider.");
+  CRM_Core_Error::debug_log_message('Hook civicrm_alterProviderTypes invoked.');
+  CRM_Core_Error::debug_var('Current Provider Types', $providerTypes);
 }
-
