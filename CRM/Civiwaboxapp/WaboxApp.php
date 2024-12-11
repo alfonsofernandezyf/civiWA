@@ -3,13 +3,16 @@ namespace CRM_Civiwaboxapp;
 use GuzzleHttp\Client;
 use CRM_Core_Error;
 
+
+
 class WaboxApp {
     private $apiToken;
     private $phoneNumber;
 
     public function __construct($apiToken, $phoneNumber) {
-        $this->apiToken = $apiToken;
-        $this->phoneNumber = $phoneNumber;
+        $this->apiToken = CRM_Core_BAO_Setting::getItem('Civiwaboxapp Settings', 'api_token');
+        $this->phoneNumber = CRM_Core_BAO_Setting::getItem('Civiwaboxapp Settings', 'phone_number');
+
     }
 
     public function sendMessage($to, $message) {
