@@ -1,18 +1,19 @@
+<?php
+
 namespace CRM_Civiwaboxapp;
 
 use GuzzleHttp\Client;
 use CRM_Core_Error;
 
-
-
 class WaboxApp {
     private $apiToken;
     private $phoneNumber;
 
-    public function __construct($apiToken, $phoneNumber) {
-        $this->apiToken = CRM_Core_BAO_Setting::getItem('Civiwaboxapp Settings', 'api_token');
-        $this->phoneNumber = CRM_Core_BAO_Setting::getItem('Civiwaboxapp Settings', 'phone_number');
-
+    public function __construct() {
+        // Cargar las credenciales desde el archivo config.php
+        $config = include __DIR__ . '/../../../config.php';
+        $this->apiToken = $config['api_token'];
+        $this->phoneNumber = $config['phone_number'];
     }
 
     public function sendMessage($to, $message) {

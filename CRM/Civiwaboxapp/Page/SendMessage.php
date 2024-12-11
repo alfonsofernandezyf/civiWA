@@ -1,3 +1,5 @@
+<?php
+
 namespace CRM_Civiwaboxapp_Page;
 
 use CRM_Core_Page;
